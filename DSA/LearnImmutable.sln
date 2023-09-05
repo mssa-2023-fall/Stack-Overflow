@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnImmutable", "LearnImmutable.csproj", "{C7B33424-BF30-458B-8A58-91C7F634E5CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class1", "Class1.csproj", "{C7B33424-BF30-458B-8A58-91C7F634E5CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnImmutableTest", "..\LearnImmutable\LearnImmutableTest.csproj", "{D3DADFC4-242A-48BF-A757-0C47A1B586FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnImmutable", "..\LearnImmutable\LearnImmutable.csproj", "{D3DADFC4-242A-48BF-A757-0C47A1B586FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
