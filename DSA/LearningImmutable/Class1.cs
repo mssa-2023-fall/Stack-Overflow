@@ -1,4 +1,4 @@
-﻿namespace Class1
+﻿namespace LearnImmutable
 {
     public class Class1
     {
