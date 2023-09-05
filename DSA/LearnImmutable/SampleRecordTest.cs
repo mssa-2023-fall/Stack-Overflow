@@ -56,5 +56,16 @@ namespace LearnImmutable
 
             Assert.AreNotEqual(pvt, sgt);
         }
+        [TestMethod]
+        public void TestingPersons()
+        {
+            Person p1 = new("Nancy", "Davolio") { PhoneNumbers = new string[1] };
+            Person p2 = p1 with { FirstName = "John" };
+            p2 = p1 with { PhoneNumbers = new string[1] };
+            Assert.AreNotEqual(p1, p2);
+            Assert.AreNotSame(p1, p2);
+            Assert.AreEqual("Nancy", p2.FirstName.ToString());
+            //Assert.AreSame(p2.LastName, p2.LastName);
+        }
     }
 }
