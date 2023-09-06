@@ -5,10 +5,7 @@ class Program
 {
     static void Main()
     {
-        double applePrice = 1.0;
-        double bananaPrice = 0.5;
-        double orangePrice = 0.75;
-        double watermelonPrice = 2.5;
+        double applePrice = 1.99, bananaPrice = 2.49, orangePrice = .99, watermelonPrice = 3.99, peachPrice = 1.29;
 
         // Initialize total price
         double totalPrice = 0.0;
@@ -42,6 +39,9 @@ class Program
                 case "watermelon":
                     itemPrice = watermelonPrice;
                     break;
+                case "peach":
+                    itemPrice = peachPrice;
+                    break;
                 default:
                     Console.WriteLine("Item not recognized. Please enter a valid item.");
                     continue; // Continue the loop if the item is not recognized
@@ -55,8 +55,8 @@ class Program
         }
 
         // Print the receipt
-        Console.WriteLine("\nReceipt:");
-        Console.WriteLine(receipt);
-        Console.WriteLine($"Total Price: ${totalPrice:F2}");
+        Console.WriteLine($"\nReceipt:\n{receipt}\nTotal Price: ${totalPrice:F2}");
+        //Console.WriteLine(receipt);
+        //Console.WriteLine($"Total Price: ${totalPrice:F2}");
     }
 }
