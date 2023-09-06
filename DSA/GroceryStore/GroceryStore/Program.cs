@@ -5,7 +5,6 @@ class Program
 {
     static void Main()
     {
-        // Define item prices
         double applePrice = 1.0;
         double bananaPrice = 0.5;
         double orangePrice = 0.75;
@@ -14,11 +13,9 @@ class Program
         // Initialize total price
         double totalPrice = 0.0;
 
-        // Create a StringBuilder for the receipt
-        StringBuilder receipt = new StringBuilder();
+        StringBuilder receipt = new StringBuilder(); // Create a StringBuilder for the receipt
 
-        // Create a loop for scanning items
-        while (true)
+        while (true) // Create a loop for scanning items
         {
             Console.Write("Enter the name of the scanned item (or 'done' to finish): ");
             string itemName = Console.ReadLine().ToLower();
