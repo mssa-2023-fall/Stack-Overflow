@@ -7,14 +7,31 @@ namespace sortArray
     {
         public static void Main(string[] args) 
         {
-            int[] arr = new int[5] { 85, 22, 63, 91, 24 };
+            int[] arr = new int[0];
             PrintArr(arr);
 
-            MaxLast(arr);
-            PrintArr(arr);
+            for(int i = 1; i < 12; i++)
+            {
+                arr = Push(arr, Fib(i) );
+                PrintArr(arr);
+            }
 
-            Sort(arr);
-            PrintArr(arr);
+        }
+        public static int Fib (int input)
+        {
+            if (input == 0) return 0;
+            if (input == 1) return 1;
+            return Fib(input - 1) + Fib(input - 2);
+        }
+        public static int[] Push(int[] arr, int num)
+        {
+            int[] result = new int[arr.Length + 1];
+            for(int i = 0; i < arr.Length; i++)
+            {
+                result[i] = arr[i];
+            }
+            result[arr.Length] = num;
+            return result;
         }
         public static int[] Sort(int[] arr)
         {
@@ -33,6 +50,7 @@ namespace sortArray
             return arr;
         }
 
+       
         public static int[] MaxLast(int[] arr)
         {
             int maxIndex = 0;
@@ -48,6 +66,7 @@ namespace sortArray
             }
             return arr;
         }
+
         public static void PrintArr(int[] arr)
         {
             foreach( int val in arr )
