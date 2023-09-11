@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoQueue", "LeoQueue.csproj", "{D337486F-CD25-4918-A137-87544DCAD627}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallQueueTest", "..\CallQueueTest\CallQueueTest.csproj", "{518B8AE7-7227-45ED-8DF2-18277B43414E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D337486F-CD25-4918-A137-87544DCAD627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D337486F-CD25-4918-A137-87544DCAD627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D337486F-CD25-4918-A137-87544DCAD627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D337486F-CD25-4918-A137-87544DCAD627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518B8AE7-7227-45ED-8DF2-18277B43414E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518B8AE7-7227-45ED-8DF2-18277B43414E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518B8AE7-7227-45ED-8DF2-18277B43414E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518B8AE7-7227-45ED-8DF2-18277B43414E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE90CC29-5053-4C5A-B728-456F0C0272AC}
+	EndGlobalSection
+EndGlobal
