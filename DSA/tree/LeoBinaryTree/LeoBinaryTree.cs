@@ -42,24 +42,24 @@ namespace LeoBinaryTree
             }
         }
 
-        public void traverseTree(LeoNode Node)
+        public void PrintTree(LeoNode Node)
         {
             if (Node == null) return;
 
             //Pre order traversal (Breadth First Search)
             Console.Write(Node.data + " ");
-            traverseTree(Node.left);
-            traverseTree(Node.right);
+            PrintTree(Node.left);
+            PrintTree(Node.right);
 
             /* (These are two different kinds of depth searches)
             //In order traversal
-            traverseTree(Node.left);
+            PrintTree(Node.left);
             Console.Write(Node.data + " ");
-            traverseTree(Node.right);
+            PrintTree(Node.right);
 
             //Post order traversal
-            traverseTree(Node.left);
-            traverseTree(Node.right);
+            PrintTree(Node.left);
+            PrintTree(Node.right);
             Console.Write(Node.data + " "); */
         }
     }

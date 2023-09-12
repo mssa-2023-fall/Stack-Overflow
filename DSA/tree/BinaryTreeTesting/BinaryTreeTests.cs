@@ -49,7 +49,7 @@ namespace BinaryTreeTesting
             string expected = "1 2 4 5 3 ";
             using(ConsoleOutput output = new ConsoleOutput())
             {
-                leoTree.traverseTree(leoTree.Root);
+                leoTree.PrintTree(leoTree.Root);
                 Assert.AreEqual(expected, output.GetOutput());
             }
         }
