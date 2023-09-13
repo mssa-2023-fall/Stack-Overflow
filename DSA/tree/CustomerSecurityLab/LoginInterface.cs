@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace CustomerSecurityLab
 {
-    internal interface LoginInterface
+    public interface LoginInterface
     {
+        //Creating Customers
+        void IntitalizeThreeCustomers();
+        
+
+        //Finding
+        Customer FindCustomerByNameAndPassword(Dictionary<string, Customer> Customers, string name, string password);
+
+        bool LoginSucessfull(Customer customer, string password);
     }
 }
