@@ -110,5 +110,23 @@ namespace LoginTests
             Assert.AreEqual(DecryptCreditCards[2], DecryptCreditCards[1]);
 
         }
+
+        [TestMethod]
+        public void FindCustomer_CustomerLogin()
+        {
+            //Arrange
+            CustomerLogin Store = new CustomerLogin();
+            Store.IntitalizeThreeCustomers();
+            Store.Customers.Add("Leo", new Customer("Leo LastName", "fakeemail@gmail.com", "678979686786754", "pa565words"));
+
+            //Act
+            Customer Leo = Store.FindCustomerByNameAndPassword("Leo LastName", "pa565words");
+
+            //Assert
+            Assert.AreEqual("Leo LastName", Leo.Name);
+            Assert.AreEqual("678979686786754", Leo.DecryptCreditCard("pa565words"));
+            Assert.AreNotEqual("pa565words", Leo.HashedPassword);
+            Assert.IsTrue(Leo.VerifyPassword("pa565words"));
+        }
     }
 }
