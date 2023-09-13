@@ -47,6 +47,28 @@ namespace LoginTests
         }
 
         [TestMethod]
+        public void CanILoginToEachAccount_CustomerLogin()
+        {
+            //Arrange
+            CustomerLogin Store = new CustomerLogin();
+            Store.IntitalizeThreeCustomers();
+            string[] hashedPasswords = new string[3];
+
+            //Act
+            int i = 0;
+            string Password = "password";
+            foreach (var CustomerDictionary in Store.Customers)
+            {
+                Customer Customer = CustomerDictionary.Value;
+                hashedPasswords[i++] = Customer.HashedPassword;
+
+                //Assert
+                Assert.IsTrue(Store.LoginSucessfull(Customer, Password));
+            }
+        }
+
+
+        [TestMethod]
         public void AreCreditCardsUniquelyEncrypted_CustomerLogin()
         {
             //Arrange
@@ -65,6 +87,27 @@ namespace LoginTests
             //Assert
             Assert.AreNotEqual(EncryptedCreditCards[0], EncryptedCreditCards[1]);
             Assert.AreNotEqual(EncryptedCreditCards[2], EncryptedCreditCards[1]);
+        }
+
+        [TestMethod]
+        public void DecryptAndMatchCreditCards_CustomerLogin()
+        {
+            //Arrange
+            CustomerLogin Store = new CustomerLogin();
+            Store.IntitalizeThreeCustomers();
+            string[] DecryptCreditCards = new string[Store.Customers.Count()];
+
+            //Act
+            int i = 0;
+            foreach (var CustomerDictionary in Store.Customers)
+            {
+                Customer Customer = CustomerDictionary.Value;
+                DecryptCreditCards[i++] = Customer.DecryptCreditCard("password");
+            }
+
+            //Assert
+            Assert.AreEqual(DecryptCreditCards[0], DecryptCreditCards[1]);
+            Assert.AreEqual(DecryptCreditCards[2], DecryptCreditCards[1]);
 
         }
     }

@@ -23,7 +23,7 @@ namespace CustomerSecurityLab
 
         public bool LoginSucessfull(Customer customer, string password)
         {
-            throw new NotImplementedException();
+            return customer.VerifyPassword(password);
         }
     }
 }
