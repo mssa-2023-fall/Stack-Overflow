@@ -20,7 +20,7 @@ namespace CustomerSecurityLab
         {
             foreach(Customer customer in Customers.Values)
             {
-                if (customer.Name == name && customer.VerifyPassword(password) )
+                if (customer.Name == name && LoginSucessfull(customer, password) )
                 {
                     return customer;
                 }
