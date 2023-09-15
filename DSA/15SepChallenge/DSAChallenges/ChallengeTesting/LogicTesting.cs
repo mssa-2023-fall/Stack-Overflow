@@ -27,10 +27,10 @@ namespace ChallengeTesting
             //Act
             numArr = logic.SortArr(numArr);
 
-            for(int i = 0; i < numArr.Length - 1; i++)
+            for (int i = 0; i < numArr.Length - 1; i++)
             {
 
-            //Assert
+                //Assert
                 Assert.AreEqual(expected[i], numArr[i]);
             }
             Assert.AreEqual(10, numArr.Length);
@@ -41,7 +41,7 @@ namespace ChallengeTesting
         {
             //Assign
             int[] numArr = { 5, 3, 1, 2, 4, 7, 6, 8, 10, 9 };
-            int[] expected = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            int[] expected = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 
             //Act
             numArr = logic.SortArr(numArr, false); //bool represents if it is in asc
@@ -84,6 +84,26 @@ namespace ChallengeTesting
 
             //Assert
             Assert.IsFalse(isFound);
+        }
+
+        [DataTestMethod]
+        [DataRow(new int[] { 1, 2, 3 }, 3)]
+        [DataRow(new int[] { 1, 2, 3 }, 2)]
+        [DataRow(new int[] { 1, 2, 3 }, 1)]
+        public void TestDictionary(int[] array, int target)
+    {
+            //Assign
+            Dictionary<bool, int[]> tests = new Dictionary<bool, int[]>();
+
+
+            //Act
+            bool Found = logic.IsPresent(array, target);
+            tests[Found] = array;
+
+            //Assert
+            Assert.IsNotNull(tests);
+            Assert.IsTrue(Found);
+            Assert.AreEqual(array, tests[true]);
         }
     }
 }
