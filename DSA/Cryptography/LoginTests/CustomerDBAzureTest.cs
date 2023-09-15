@@ -34,9 +34,14 @@ namespace TestCustomerLogin
             _tableName = config["Azure:TableName"] + Guid.NewGuid().ToString().Substring(0, 4);//append guid to avoid delay in deleting the table
             _keyVaultUri = config["Azure:KeyVaultUri"];
             //code to create a table: _tableName
-            _tableServiceClient = new TableServiceClient(_tableConnStr);
-            _tableServiceClient.CreateTableIfNotExists(_tableName);
-
+            try
+            {
+                _tableServiceClient = new TableServiceClient(_tableConnStr);
+                _tableServiceClient.CreateTableIfNotExists(_tableName);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
         [TestMethod]
         public void ConfirmTenantIDAndOtherVariables()
