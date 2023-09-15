@@ -13,7 +13,7 @@ namespace CustomerSecurityLab
         
 
         //Finding
-        Customer FindCustomerByNameAndPassword(Dictionary<string, Customer> Customers, string name, string password);
+        Customer FindCustomerByNameAndPassword(string name, string password);
 
         bool LoginSucessfull(Customer customer, string password);
     }

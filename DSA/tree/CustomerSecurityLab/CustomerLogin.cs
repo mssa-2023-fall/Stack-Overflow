@@ -16,14 +16,21 @@ namespace CustomerSecurityLab
             Customers.Add("Jackie", new Customer("Jacki Smith", "smith.jacki@gmail.com", "1234-3421-1234-4321", "password"));
         }
 
-        public Customer FindCustomerByNameAndPassword(Dictionary<string, Customer> Customers, string name, string password)
+        public Customer FindCustomerByNameAndPassword(string name, string password)
         {
-            throw new NotImplementedException();
+            foreach(Customer customer in Customers.Values)
+            {
+                if (customer.Name == name && LoginSucessfull(customer, password) )
+                {
+                    return customer;
+                }
+            }
+            throw new Exception("Cannot find user");
         }
 
         public bool LoginSucessfull(Customer customer, string password)
         {
-            throw new NotImplementedException();
+            return customer.VerifyPassword(password);
         }
     }
 }

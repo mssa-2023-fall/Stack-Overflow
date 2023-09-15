@@ -34,7 +34,7 @@ namespace CustomerSecurityLab
             return Convert.ToHexString(hash);
         }
 
-        bool VerifyPassword(string password)
+        public bool VerifyPassword(string password)
         {
             var hashToCompare = Rfc2898DeriveBytes.Pbkdf2(password, this.Salt, 350000, hashAlgorithm, 64);
 
