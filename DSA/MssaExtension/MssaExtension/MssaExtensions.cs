@@ -28,12 +28,13 @@ namespace MssaExtension
 
         }
 
-        public static float Median(this IEnumerable<int> _intArr)
+        public static T Median<T>(this IEnumerable<T> _intArr)
         {
+            //How to constraint T tot that of numbers
             var sorted = _intArr.OrderBy(n => n).ToList();
+            //Pick out the middle term
             var middleItem = sorted.Count / 2;
-            if (sorted.Count % 2 == 1) return sorted[middleItem];
-            return ((float)sorted[middleItem] + (float)sorted[middleItem + 1]) / 2;
+            return sorted[middleItem];
         }
     }
 }

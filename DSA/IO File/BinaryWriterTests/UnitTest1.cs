@@ -149,5 +149,27 @@ namespace BinaryWriterTests
             IList<Winner> winners =
                 ParquetSerializer.DeserializeAsync<Winner>(new FileStream(@"C:\test\winner.parquet", FileMode.Open)).Result;
         }
+
+        [TestMethod]
+        public void findTxt()
+        {
+            string line;
+            StreamReader s = new StreamReader(@"C:\test\needformat.txt");
+            List<string> formatted = new List<string>();
+
+            while((line = s.ReadLine()) != null)
+            {
+                line = s.ReadLine() + "     " + line;
+                s.ReadLine();
+                formatted.Add(line);
+            }
+
+            var sw = new StreamWriter(@"C:\test\formatted.txt");
+            foreach (string format in formatted) sw.WriteLine(format);
+            sw.Close();
+
+            Assert.AreEqual(162, formatted.Count);
+            Assert.IsNull(line);
+        }
     }
 }
