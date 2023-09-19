@@ -1,3 +1,9 @@
+using System.Formats.Asn1;
+using System.Globalization;
+using CsvHelper;
+using CsvHelper.Configuration;
+using Parquet.Serialization;
+
 namespace BinaryWriterTests
 {
     [TestClass]
@@ -104,6 +110,44 @@ namespace BinaryWriterTests
             sw.WriteLine($"{"Actor",20}, {"Number of Oscars",20}");
             foreach(var a in repeatedActors) sw.WriteLine($"{a.Actor, 20},{a.Movies, 19}");
             sw.Close();
+        }
+        [TestMethod]
+        public void CreateAList_CSVReader()
+        {
+            //Assign
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = true,
+                BadDataFound = null,
+                Quote = '"',
+                Delimiter = ", ",
+            };
+            IEnumerable<Winner> records;
+            Winner w;
+            List<Winner> winners;
+            using (var reader = new StreamReader(@"C:\test\oscar_age_male.csv"))
+            using (var csv = new CsvReader(reader, config))
+            {
+                records = csv.GetRecords<Winner>();
+                winners = records.ToList();
+                w = winners[0];
+            }
+            ParquetSerializer.SerializeAsync(winners, @"C:\test\winner.parquet").Wait();
+
+            //Assert
+            Assert.AreEqual(1, w.Index);
+            Assert.AreEqual(1928, w.Year);
+            Assert.AreEqual(44, w.Age);
+            Assert.AreEqual("Emil Jannings", w.Name);
+            Assert.AreEqual("The Last Command, The Way of All Flesh", w.Movie);
+
+        }
+
+        [TestMethod]
+        public void DeserializeParquet()
+        {
+            IList<Winner> winners =
+                ParquetSerializer.DeserializeAsync<Winner>(new FileStream(@"C:\test\winner.parquet", FileMode.Open)).Result;
         }
     }
 }

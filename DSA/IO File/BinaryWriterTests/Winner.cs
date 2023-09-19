@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsvHelper.Configuration.Attributes;
 
 namespace BinaryWriterTests
 {
     internal class Winner
     {
+        [Name("Index")]
         public int Index { get; set; }
+
+        [Name("Year")]
         public int Year { get; set; }
+
+        [Name("Age")]
         public int Age { get; set;  }
+
+        [Name("Name")]
         public string Name { get; set; }
+
+        [Name("Movie")]
         public string Movie { get; set; }
 
         public Winner(string input)
@@ -32,6 +42,11 @@ namespace BinaryWriterTests
             }
             //removing quotes
             Movie = Movie[1..(Movie.Length - 1)];
+        }
+
+        public Winner()
+        {
+
         }
     }
 }
