@@ -4,6 +4,8 @@ using Dapper;
 using System;
 using RandomNameGeneratorLibrary;
 
+
+
 /** TODO:   Notes
 -- Present menu
 -- 1 Creates a customer table - customerId identity
